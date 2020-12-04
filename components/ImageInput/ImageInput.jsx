@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../../styles/Home.module.css'
 
-const ImageInput = () => {
+const ImageInput = ({handleOnload, shouldHideFileInput}) => {
   const [imagePreview, setImagePreview] = useState(null)
   const handleImageChange = (e) => {
     const reader = new FileReader()
@@ -13,14 +13,16 @@ const ImageInput = () => {
 
   return (
     <div >
-      <input 
-        type="file"
-        accept="image/png, image/jpeg"
-        onChange={handleImageChange}
-      />
+      {!shouldHideFileInput && (
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          onChange={handleImageChange}
+        />
+      )}
       <div>
-        {imagePreview 
-          ? <img id="preview" className={styles.imagePreview} src={imagePreview} />
+        {imagePreview
+          ? <img id="preview" onLoad={handleOnload} className={styles.imagePreview} src={imagePreview} />
           : <p>{'Please select an Image for Preview'}</p>
         }
       </div>
