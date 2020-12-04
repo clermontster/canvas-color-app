@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: lightgrey;
 }
 
 .main {
@@ -113,6 +113,10 @@
 
 .logo {
   height: 1em;
+}
+
+.imagePreview {
+  max-width: 25rem;
 }
 
 @media (max-width: 600px) {

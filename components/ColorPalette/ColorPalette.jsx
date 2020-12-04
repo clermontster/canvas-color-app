@@ -34,12 +34,12 @@ const ColorPalette = ({
       for(let i = 0; i <=imgData.data.length; i+=4) {
         const {data } = imgData;
         if (data[i] < 255 || data[i+1] < 255 || data[i+2] < 255) {
-          console.log({
-            r: data[i],
-            g: data[i + 1],
-            b: data[i + 2],
-            a: data[i + 3],
-          })
+          // console.log({
+          //   r: data[i],
+          //   g: data[i + 1],
+          //   b: data[i + 2],
+          //   a: data[i + 3],
+          // })
         }
       }
     }
