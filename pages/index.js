@@ -23,7 +23,7 @@ export default function Home() {
         <ImageInput handleOnload={handleOnload} shouldHideFileInput={canShowPreviewLink} />
 
         {canShowPreviewLink && (
-          <a href="/sample" className={styles.button}>Preview your color palettes</a>
+          <a href="/demo" className={styles.button}>Preview your color palettes</a>
         )}
 
       </main>
