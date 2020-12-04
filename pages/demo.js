@@ -3,6 +3,11 @@ import styles from '../styles/Home.module.css'
 
 const palettes = [
   {
+    name: 'Pizza Hut',
+    cssName: 'palettePizzaHut',
+    square: 'squarePizzaHut'
+  },
+  {
     name: 'Blues',
     cssName: 'paletteBlues',
     square: 'squareBlues'
@@ -11,11 +16,6 @@ const palettes = [
     name: 'Toast',
     cssName: 'paletteToast',
     square: 'squareToast'
-  },
-  {
-    name: 'Pizza Hut',
-    cssName: 'palettePizzaHut',
-    square: 'squarePizzaHut'
   },
   {
     name: 'Black and white',
