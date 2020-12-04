@@ -68,6 +68,9 @@ export default function Demo() {
             )}
           </div>
         </div>
+        <div className={styles.borderFrame}>
+          <a href="/">Return to image upload</a>
+        </div>
       </div>
     </div>
   )

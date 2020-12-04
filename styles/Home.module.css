@@ -176,6 +176,11 @@
   background-color: var(--base-bg-color);
 }
 
+.demo a {
+  font-weight: 700;
+  color: var(--base-bold-color);
+}
+
 .demo .rows {
   display: flex;
   flex-direction: row;
