@@ -21,7 +21,7 @@ export default function Home() {
         {/*<ColorPalette ctxId="test" imgId='preview' />*/}
 
         {canShowPreviewLink && (
-          <a href="/sample" className={styles.button}>Preview your color palettes</a>
+          <a href="/demo" className={styles.button}>Preview your color palettes</a>
         )}
 
         <canvas id='canvas' >
