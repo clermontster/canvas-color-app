@@ -1,30 +1,51 @@
 import React, { useState } from 'react'
-import styles from '../../styles/Home.module.css'
+import {extractColourPalette} from "../../util/kmeans";
 
-const ImageInput = ({handleOnload, shouldHideFileInput}) => {
-  const [imagePreview, setImagePreview] = useState(null)
+const ImageInput = () => {
+  const [colorPalette, setColorPalette] = useState([])
   const handleImageChange = (e) => {
+
     const reader = new FileReader()
     const file = e.target.files[0]
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d');
 
-    reader.onloadend = () => setImagePreview(reader.result)
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Extract colour palette from image
+        const palettes = extractColourPalette(ctx, 5);
+        console.log(palettes)
+        setColorPalette(palettes);
+      }
+      img.src = event.target.result
+    }
     reader.readAsDataURL(file)
   }
 
   return (
     <div >
-      {!shouldHideFileInput && (
-        <input
-          type="file"
-          accept="image/png, image/jpeg"
-          onChange={handleImageChange}
-        />
-      )}
+      <p>{'Please select an Image for Preview'}</p>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+      />
+
       <div>
-        {imagePreview
-          ? <img id="preview" onLoad={handleOnload} className={styles.imagePreview} src={imagePreview} />
-          : <p>{'Please select an Image for Preview'}</p>
-        }
+        {colorPalette && (
+          <ul className="palette">
+            {colorPalette.map((color, index) => (
+              <li key={index} style={{backgroundColor: color}}>{color}</li>
+            ))}
+          </ul>
+        )}
+
+        <canvas id='canvas' >
+          browser cant render canvas api
+        </canvas>
       </div>
     </div>
   )
